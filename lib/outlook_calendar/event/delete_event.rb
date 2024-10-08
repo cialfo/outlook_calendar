@@ -26,7 +26,7 @@ module OutlookCalendar
     end
 
     def url
-      "https://outlook.office.com/api/v2.0/me/events/#{event_id}"
+      "#{Constants::Api::BASE_URL}/me/events/#{event_id}"
     end
   end
 end

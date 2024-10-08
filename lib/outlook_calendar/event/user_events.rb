@@ -31,8 +31,8 @@ module OutlookCalendar
     end
 
     def url
-      return "https://outlook.office.com/api/v2.0/me/calendars/#{calendar_id}/calendarview?#{params}" if calendar_id.present?
-      "https://outlook.office.com/api/v2.0/me/calendarview?#{params}"
+      return "#{Constants::Api::BASE_URL}/me/calendars/#{calendar_id}/calendarview?#{params}" if calendar_id.present?
+      "#{Constants::Api::BASE_URL}/me/calendarview?#{params}"
     end
   end
 end

@@ -48,17 +48,21 @@ module OutlookCalendar
     end
 
     def create_calendar_event_url
-      "https://outlook.office.com/api/v2.0/me/calendars/#{calendar_id}/events?#{select_attributes}" if select_params?
-      "https://outlook.office.com/api/v2.0/me/calendars/#{calendar_id}/events?"
+      "#{base_url}/me/calendars/#{calendar_id}/events?#{select_attributes}" if select_params?
+      "#{base_url}/me/calendars/#{calendar_id}/events?"
     end
 
     def create_event_url
-      "https://outlook.office.com/api/v2.0/me/events?#{select_attributes}" if select_params?
-      'https://outlook.office.com/api/v2.0/me/events?'
+      "#{base_url}/me/events?#{select_attributes}" if select_params?
+      "#{base_url}/me/events?"
     end
 
     def select_attributes
       "?$Select=#{select}"
+    end
+
+    def base_url
+      @base_url ||= Constants::Api::BASE_URL
     end
   end
 end

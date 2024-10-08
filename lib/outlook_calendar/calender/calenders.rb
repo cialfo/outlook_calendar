@@ -28,7 +28,7 @@ module OutlookCalendar
     end
 
     def url
-      @url = 'https://outlook.office.com/api/v2.0/me/calendars'
+      @url = "#{Constants::Api::BASE_URL}/me/calendars"
     end
   end
 end
