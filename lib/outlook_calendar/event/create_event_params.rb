@@ -14,20 +14,20 @@ module OutlookCalendar
 
     def event_attributes
       {
-        Subject: params[:title],
-        Body: {
-          ContentType: params[:content_type],
-          Content: params[:content]
+        subject: params[:title],
+        body: {
+          contentType: params[:content_type],
+          content: params[:content]
         },
-        Start: {
-          DateTime: params[:start_time],
-          TimeZone: timezone
+        start: {
+          dateTime: params[:start_time],
+          timeZone: timezone
         },
-        End: {
-          DateTime: params[:end_time],
-          TimeZone: timezone
+        end: {
+          dateTime: params[:end_time],
+          timeZone: timezone
         },
-        Attendees: attendees
+        attendees: attendees
       }
     end
 
@@ -47,7 +47,7 @@ module OutlookCalendar
     end
 
     def type
-      return 'Required' unless params[:type].present?
+      return 'required' unless params[:type].present?
       params[:type]
     end
 
@@ -61,11 +61,11 @@ module OutlookCalendar
 
     def attendees_attributes(attendee)
       {
-        EmailAddress: {
-          Address: attendee[:email],
-          Name: attendee[:name]
+        emailAddress: {
+          address: attendee[:email],
+          name: attendee[:name]
         },
-        Type: 'Required'
+        type: 'required'
       }
     end
   end

@@ -37,21 +37,21 @@ module OutlookCalendar
 
     def calendar_attributes(value)
       {
-        id: value['Id'],
+        id: value['id'],
         url: value['@odata.id'],
-        name: value['Name'],
-        change_key: value['ChangeKey'],
-        color: value['Color'],
-        can_share: value['CanShare'],
-        can_view_private_items: value['CanViewPrivateItems'],
-        CanEdit: value['CanEdit'],
-        owner: owner(value['Owner'])
+        name: value['name'],
+        change_key: value['changeKey'],
+        color: value['color'],
+        can_share: value['canShare'],
+        can_view_private_items: value['canViewPrivateItems'],
+        CanEdit: value['canEdit'],
+        owner: owner(value['owner'])
       }
     end
 
     def owner(owner_value)
       return {} unless owner_value.present?
-      { name: owner_value['Name'], address: owner_value['Address'] }
+      { name: owner_value['name'], address: owner_value['address'] }
     end
   end
 end

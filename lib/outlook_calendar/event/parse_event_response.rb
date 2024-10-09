@@ -37,17 +37,17 @@ module OutlookCalendar
 
     def event_attributes(value)
       {
-        id: value['Id'],
+        id: value['id'],
         url: value['@odata.id'],
         etag: value['@odata.etag'],
-        subject: value['Subject'],
-        start: parse_time(value['Start']),
-        end: parse_time(value['End'])
+        subject: value['subject'],
+        start: parse_time(value['start']),
+        end: parse_time(value['end'])
       }
     end
 
     def parse_time(time_value)
-      {date_time: time_value['DateTime'], time_zone: time_value['TimeZone']}
+      {date_time: time_value['dateTime'], time_zone: time_value['timeZone']}
     end
   end
 end
